@@ -1,0 +1,27 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+/* Watchlist-specific table extras */
+.tableWrapper {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+}
+
+/* Surface background means hover needs to go the other way */
+.row:hover { background-color: var(--color-wash); }
+
+.symbol  { font-weight: 700; }
+.name    { color: var(--color-text-muted); }
+.price   { font-weight: 600; }
+.actions { text-align: right; }
+
+/* Empty state icon uses primary colour on this page */
+.emptyIcon { color: var(--color-primary); }
+
+@media (max-width: 640px) {
+  .data-table th:nth-child(2),
+  .data-table td:nth-child(2) { display: none; }
+}

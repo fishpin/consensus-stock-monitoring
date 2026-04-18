@@ -1,0 +1,125 @@
+.row {
+  cursor: pointer;
+  border-bottom: 1px solid var(--color-border-light);
+  transition: background-color 0.1s;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row:hover {
+  background-color: var(--color-surface);
+}
+
+.row td {
+  padding: var(--sp-3) var(--sp-4);
+  vertical-align: middle;
+}
+
+.symbol {
+  font-weight: 600;
+  font-size: var(--text-base);
+  color: var(--color-text);
+  white-space: nowrap;
+  width: 56px;
+}
+
+.name {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.spark {
+  width: 88px;
+  padding-left: var(--sp-2);
+  padding-right: var(--sp-2);
+}
+
+.price {
+  text-align: right;
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.changeUp {
+  text-align: right;
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--color-up);
+  white-space: nowrap;
+  width: 72px;
+}
+
+.changeDown {
+  text-align: right;
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--color-down);
+  white-space: nowrap;
+  width: 72px;
+}
+
+.rowExpanded {
+  background-color: var(--color-surface);
+  border-bottom: none;
+}
+
+.detailRow td {
+  padding: 0;
+}
+
+.detailCell {
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.detailStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4) var(--sp-6);
+  padding: var(--sp-3) var(--sp-4);
+  background-color: var(--color-surface);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statLabel {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.statValue {
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+
+.watchCell {
+  width: 32px;
+  padding-left: var(--sp-1);
+  padding-right: var(--sp-3);
+  text-align: right;
+}
+
+.watchBtn:hover { color: var(--color-primary); }
+.watchBtnActive { color: var(--color-primary); }
+
+.detailLoading {
+  padding: var(--sp-3) var(--sp-4);
+  font-size: var(--text-base);
+  color: var(--color-text-faint);
+}

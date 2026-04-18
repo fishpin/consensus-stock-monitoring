@@ -1,0 +1,23 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--sp-2);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.up {
+  background-color: color-mix(in srgb, var(--color-up) 15%, transparent);
+  color: var(--color-up);
+}
+
+.down {
+  background-color: color-mix(in srgb, var(--color-down) 15%, transparent);
+  color: var(--color-down);
+}
+
+.neutral {
+  background-color: color-mix(in srgb, var(--color-neutral) 15%, transparent);
+  color: var(--color-neutral);
+}

@@ -1,0 +1,342 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+/* ── Top row: value + allocation ─────────────────────────────── */
+.topRow {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+}
+
+.topLabel {
+  padding-left: var(--sp-1);
+  padding-bottom: var(--sp-2);
+}
+
+/* Portfolio Value */
+.valueSection {
+  padding: var(--sp-5);
+  background-color: var(--color-wash);
+  border-top: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.valueRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.totalValue {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.valueSubtitle {
+  font-size: var(--text-base);
+  font-weight: 400;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+  margin-top: calc(-1 * var(--sp-1));
+}
+
+.chartArea {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
+}
+
+.periodBar {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--sp-1);
+}
+
+.periodBtn {
+  background: none;
+  border: none;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-faint);
+  padding: var(--sp-1) var(--sp-2);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: color 0.15s, background-color 0.15s;
+}
+.periodBtn:hover { color: var(--color-text); background-color: var(--color-border-light); }
+.periodActive    { color: var(--color-text); background-color: var(--color-surface); font-weight: 600; }
+
+/* Allocation */
+.profitsSection {
+  padding: var(--sp-5);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  align-items: flex-start;
+}
+
+.wheelWrap {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 200px;
+}
+
+.wheelCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.wheelAmount {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.wheelCaption {
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+}
+
+/* ── Allocation legend ───────────────────────────────────────── */
+.distLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-5);
+}
+
+.distItem {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.distDot {
+  width: var(--sp-2);
+  height: var(--sp-2);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.distSymbol {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.distPct {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* ── Assets table ────────────────────────────────────────────── */
+.assetsSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+/* Local overrides on top of global table-wrapper */
+.tableWrapper {
+  background-color: var(--color-wash);
+}
+
+/* Local overrides on top of global data-table */
+.table {
+  min-width: 720px;
+}
+
+.rowSelling { background-color: var(--color-wash); cursor: default; }
+
+.symbol  { font-weight: 700; }
+.name    { color: var(--color-text-muted); max-width: 200px; overflow: hidden; text-overflow: ellipsis; }
+.price   { font-weight: 600; }
+.actions { text-align: right; width: 120px; }
+
+.actionBtns {
+  display: flex;
+  gap: var(--sp-2);
+  justify-content: flex-end;
+}
+
+.glPct {
+  font-size: var(--text-sm);
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+/* ── Sell / cancel buttons ───────────────────────────────────── */
+.buyBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-on-primary);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 2px var(--sp-3);
+  cursor: pointer;
+  transition: opacity 0.15s;
+  white-space: nowrap;
+}
+.buyBtn:hover { opacity: 0.85; }
+
+.buyConfirm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-on-primary);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: var(--sp-2) var(--sp-4);
+  cursor: pointer;
+  transition: opacity 0.15s;
+  white-space: nowrap;
+}
+.buyConfirm:not(:disabled):hover { opacity: 0.85; }
+.buyConfirm:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.sellBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  background: none;
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-pill);
+  padding: 2px var(--sp-3);
+  cursor: pointer;
+  transition: background-color 0.15s;
+  white-space: nowrap;
+}
+.sellBtn:hover { background-color: color-mix(in srgb, var(--color-primary) 12%, transparent); }
+.sellBtn:focus:not(:focus-visible) { outline: none; }
+
+.cancelBtn {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px var(--sp-2);
+  transition: color 0.15s;
+}
+.cancelBtn:hover { color: var(--color-text); }
+
+/* ── Inline sell panel ───────────────────────────────────────── */
+.sellRow td { padding: 0; }
+
+.sellCell { border-bottom: 1px solid var(--color-border-light); }
+
+.sellPanel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-6);
+  padding: var(--sp-4);
+  background-color: var(--color-wash);
+}
+
+.sellInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sellInfoText  { font-size: var(--text-base); color: var(--color-text); }
+.sellInfoMuted { font-size: var(--text-sm);   color: var(--color-text-faint); }
+
+.sellControls {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--sp-5);
+}
+
+.sellField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.sellLabel {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.sellInput {
+  width: 80px;
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-family: var(--font-sans);
+  text-align: right;
+  transition: border-color 0.15s;
+}
+.sellInput:focus { outline: none; border-color: var(--color-primary); }
+
+.sellProceeds {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+  padding-bottom: var(--sp-2);
+}
+
+.sellConfirm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: var(--sp-2) var(--sp-4);
+  cursor: pointer;
+  transition: opacity 0.15s;
+  white-space: nowrap;
+}
+.sellConfirm:not(:disabled):hover { opacity: 0.85; }
+.sellConfirm:disabled              { opacity: 0.4; cursor: not-allowed; }
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .topRow { grid-template-columns: 1fr; }
+  .valueSection { border-right: none; border-bottom: 1px solid var(--color-border); }
+  .profitsSection { padding-bottom: var(--sp-5); }
+  .wheelWrap { min-height: 240px; }
+}

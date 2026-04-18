@@ -1,0 +1,144 @@
+.widget {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Status bar ──────────────────────────────────────────────────── */
+.statusRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-2) var(--sp-4);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.dot {
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+  font-weight: 600;
+}
+.dotLive { color: var(--color-up); }
+
+.roomName {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* ── Error ───────────────────────────────────────────────────────── */
+.errorBanner {
+  padding: var(--sp-2) var(--sp-4);
+  font-size: var(--text-sm);
+  color: var(--color-down);
+  background-color: color-mix(in srgb, var(--color-down) 8%, transparent);
+}
+
+/* ── Messages ────────────────────────────────────────────────────── */
+.messages {
+  overflow-y: auto;
+  height: 240px;
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  background-color: var(--color-wash);
+}
+
+.empty {
+  text-align: center;
+  color: var(--color-text-faint);
+  font-size: var(--text-sm);
+  margin: auto;
+}
+
+.msgRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+}
+
+.msgRowOwn {
+  flex-direction: row-reverse;
+}
+
+.avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  font-family: var(--font-display);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.bubble {
+  max-width: 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.msgHeader {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+}
+
+.msgUser {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.msgRowOwn .msgUser {
+  color: var(--color-primary);
+}
+
+.msgTime {
+  font-size: 11px;
+  color: var(--color-text-faint);
+}
+
+.msgText {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.msgImage {
+  max-width: 100%;
+  border-radius: var(--radius-sm);
+  margin-top: var(--sp-1);
+}
+
+/* ── Input ───────────────────────────────────────────────────────── */
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-3) var(--sp-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.input {
+  flex: 1;
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-wash);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-family: var(--font-sans);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.input:focus { border-color: var(--color-primary); }

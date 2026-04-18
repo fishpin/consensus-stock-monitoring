@@ -1,0 +1,294 @@
+/* ── Layout ──────────────────────────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  height: calc(100vh - 160px);
+  min-height: 500px;
+  border-top: 1px solid var(--color-border);
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+}
+
+/* ── Sidebar ─────────────────────────────────────────────────────── */
+.sidebar {
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-4) var(--sp-4) var(--sp-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.newRoomForm {
+  padding: var(--sp-3) var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.newRoomInput {
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-wash);
+  color: var(--color-text);
+  font-size: var(--text-base);
+  font-family: var(--font-sans);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.newRoomInput:focus { border-color: var(--color-primary); }
+
+.roomList {
+  list-style: none;
+  overflow-y: auto;
+  flex: 1;
+  padding: var(--sp-2) 0;
+}
+
+.roomBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-2) var(--sp-4);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.1s;
+  gap: var(--sp-2);
+}
+.roomBtn:hover { background-color: var(--color-surface); }
+
+.roomBtnActive {
+  background-color: var(--color-surface);
+}
+
+.roomName {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.roomBtnActive .roomName {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.msgCount {
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+  flex-shrink: 0;
+}
+
+/* ── Chat panel ──────────────────────────────────────────────────── */
+.chatPanel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chatHeader {
+  padding: var(--sp-4) var(--sp-6);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.roomTopic {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.onlineDot {
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.onlineDotLive {
+  color: var(--color-up);
+}
+
+.errorBanner {
+  padding: var(--sp-2) var(--sp-6);
+  font-size: var(--text-sm);
+  color: var(--color-down);
+  background-color: color-mix(in srgb, var(--color-down) 8%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-down) 20%, transparent);
+}
+
+/* ── Messages ────────────────────────────────────────────────────── */
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--sp-5) var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  background-color: var(--color-wash);
+}
+
+.loadEarlier {
+  align-self: center;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: var(--text-sm);
+  font-family: var(--font-sans);
+  padding: var(--sp-1) var(--sp-3);
+  transition: border-color 0.15s, color 0.15s;
+}
+.loadEarlier:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.loadEarlier:disabled { opacity: 0.5; cursor: default; }
+
+.emptyMsg {
+  text-align: center;
+  color: var(--color-text-faint);
+  font-size: var(--text-base);
+  margin: auto;
+}
+
+.msgRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+}
+
+.msgRowOwn {
+  flex-direction: row-reverse;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.bubble {
+  max-width: 72%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.msgHeader {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+}
+
+.msgUser {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.msgRowOwn .msgUser {
+  color: var(--color-primary);
+}
+
+.msgText {
+  font-size: var(--text-base);
+  color: var(--color-text);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.msgImage {
+  max-width: 100%;
+  border-radius: var(--radius-sm);
+  margin-top: var(--sp-2);
+}
+
+
+.msgTime {
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+  font-weight: 400;
+}
+
+.likeBtn {
+  align-self: flex-start;
+  gap: 4px;
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+  padding: 0;
+}
+.likeBtn:hover { color: var(--color-primary); }
+
+/* ── Input area ──────────────────────────────────────────────────── */
+.inputArea {
+  border-top: 1px solid var(--color-border);
+  padding: var(--sp-3) var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.imageInput {
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-wash);
+  color: var(--color-text);
+  font-size: var(--text-base);
+  font-family: var(--font-sans);
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.imageInput:focus { border-color: var(--color-primary); }
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.textInput {
+  flex: 1;
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-wash);
+  color: var(--color-text);
+  font-size: var(--text-base);
+  font-family: var(--font-sans);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.textInput:focus { border-color: var(--color-primary); }
