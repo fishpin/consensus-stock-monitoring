@@ -5,6 +5,7 @@ import Navbar  from './components/Layout/Navbar';
 import Footer  from './components/Layout/Footer';
 import './App.css';
 
+// Each page is code-split so its JS bundle is only downloaded when first visited
 const Landing     = lazy(() => import('./pages/Landing/Landing'));
 const StockDetail = lazy(() => import('./pages/StockDetail/StockDetail'));
 const Watchlist   = lazy(() => import('./pages/Watchlist/Watchlist'));

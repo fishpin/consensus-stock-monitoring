@@ -37,6 +37,7 @@ export default function StockDetail() {
 
   const chatRef = useRef(null);
 
+  // Two-screen flow: 'entry' shows the order form, 'confirm' shows the review summary
   const [tradeScreen, setTradeScreen] = useState('entry');
   const [tradeMode,   setTradeMode]   = useState('buy');
   const [orderType,   setOrderType]   = useState('market');

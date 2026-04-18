@@ -27,6 +27,7 @@ export default function StockChat({ symbol }) {
   const [chatError, setChatError] = useState(null);
   const [sending,   setSending]   = useState(false);
   const messagesEndRef = useRef(null);
+  // Unique per-symbol so switching stocks cleanly removes the previous listener
   const listenerId     = `stock-chat-listener-${symbol}`;
 
   useEffect(() => {

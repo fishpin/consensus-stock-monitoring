@@ -16,6 +16,7 @@ import styles from './Portfolio.module.css';
 
 const PERIODS = CHART_PERIODS.filter((p) => p.value !== '1D');
 
+// Reconstructs total portfolio value day-by-day by summing each holding's price × quantity
 function buildPortfolioHistory(portfolio, days) {
   if (portfolio.length === 0) return [];
 

@@ -14,6 +14,7 @@ export default function StockCard({ stock, expanded, onExpand, overview, isWatch
     onExpand(expanded ? null : stock.symbol);
   }
 
+  // Fragment is required — a component can't return sibling <tr> elements any other way
   return (
     <Fragment>
       <tr

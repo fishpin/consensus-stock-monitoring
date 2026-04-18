@@ -27,7 +27,7 @@ export default function Navbar() {
             <NavLink
               key={to}
               to={to}
-              end={to === ROUTES.HOME}
+              end={to === ROUTES.HOME} // prevents Home staying active on every nested route
               className={({ isActive }) =>
                 `${styles.navLink} ${isActive ? styles.navLinkActive : ''}`
               }

@@ -2,6 +2,8 @@
 
 A social stock monitoring platform built with React and Vite. Consensus combines real-time market data with community discussion — letting users track stocks, manage a portfolio, and chat with other investors in live rooms.
 
+**Live demo:** [consensus-stock-monitoring-4sstmb9l8-fishpins-projects.vercel.app](consensus-stock-monitoring-4sstmb9l8-fishpins-projects.vercel.app)
+
 ---
 
 ## Features
@@ -47,7 +49,7 @@ npm install
 
 ### Configure environment variables
 
-Create a `.env.local` file in the project root:
+Create a `.env` file in the project root:
 
 ```
 VITE_ALPHA_VANTAGE_KEY=your_alpha_vantage_key
@@ -76,6 +78,7 @@ Open [http://localhost:5173](http://localhost:5173).
 ```
 src/
 ├── components/        # Shared UI components (StockCard, NewsCard, …)
+├── constants/         # App-wide constants (routes, analyst ratings, trading)
 ├── context/           # AppContext — global state (watchlist, portfolio, rooms)
 ├── data/              # Mock data (stocks, news, chat, sentiment, analysts)
 ├── pages/
@@ -87,6 +90,8 @@ src/
 ├── services/
 │   ├── stockAPI.js    # Alpha Vantage wrapper with mock fallback
 │   └── chatAPI.js     # CometChat wrapper (init, auth, groups, messages)
+├── utils/
+│   └── formatters.js  # Shared formatting helpers
 └── index.css          # Design tokens + global utility classes
 ```
 
@@ -98,7 +103,7 @@ src/
 npm test
 ```
 
-Tests cover portfolio and watchlist state logic using Jest and React Testing Library.
+Tests cover core components and flows (routing, context, search, stock cards, watchlist, portfolio, chat, and page rendering) using Jest and React Testing Library.
 
 ---
 
